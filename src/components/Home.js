@@ -2,15 +2,20 @@ import React, { Component } from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 export default class Home extends Component {
+    constructor(props){
+        console.log("props",props)
+        super()
+
+    }
   render() {
     return (
       <div> 
            <div className='myblog'>
-            <div className='react'>
-                    <Card >
+            <div className='react' >
+                    <Card  >
                     <Card.Img variant="top" src="data:image/webp;base64,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" />
                     <Card.Body>
-                        <Card.Title>Card Title</Card.Title>
+                        <Card.Title>{this.props.courseName}</Card.Title>
                         <Card.Text>
                         Some quick example text to build on the card title and make up the bulk of
                         the card's content.

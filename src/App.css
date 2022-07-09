@@ -4,6 +4,15 @@
 .myblog{
 
   display: flex;
+  justify-content: space-between;
+}
+.react{
+  width: 150px;
+  height: 150px;
+}
+.angular{
+  width: 150px;
+  height: 150px;
 }
 .App-logo {
   height: 40vmin;

@@ -11,8 +11,8 @@ function App() {
     <div className="App">
 {/* <Task></Task>      */}
 
-   <Header/>
-   <Home></Home>
+   <Header title="blog by abhishek from upskill infotech"/>
+   <Home courseName="react"></Home>
 
     </div>
   );
