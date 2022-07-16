@@ -1,6 +1,11 @@
 .App {
   text-align: center;
 }
+img{
+
+  width:100px;
+  height: 100px;
+}
 .myblog{
 
   display: flex;
@@ -23,6 +28,9 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+.btn{
+  background-color: blue;
 }
 
 .App-header {
