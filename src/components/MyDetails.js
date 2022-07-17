@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { Component } from 'react'
 import Data from './data.json'
 export default class MyDetails extends Component {
@@ -5,8 +6,9 @@ export default class MyDetails extends Component {
     constructor(){
         console.log("constructor execurted")
         super()
-        this.state={name:"raju",address:"mumbai"}
+        this.state={productDetails:[]}
         console.log("Data",Data)
+
    
     }
     greet(str){
@@ -17,7 +19,21 @@ export default class MyDetails extends Component {
         this.setState({name:_name})
 
     }
+    componentDidMount(){
+
+     axios.get('https://ecomerce-back-end.herokuapp.com/api/addproduct').then(response=>{
+
+     console.log("data",response.data.result)
+     this.setState({productDetails:response.data.result})
+     console.log("respone productDetails",this.state.productDetails)
+     }).catch(error=>{
+      console.log("error",error)
+
+     })
+
+    }
   render() {
+    
     return (
       <div>
      {/* hello
@@ -35,25 +51,25 @@ export default class MyDetails extends Component {
        <table className="table">
                 <thead>
                     <tr>
-                        <th>#</th>
-                        <th>first name</th>
-                        <th>last name</th>
-                        <th>email</th>
-                        <th>gender</th>
+                        
+                        <th>name</th>
+                        <th>price</th>
+                        <th>description</th>
+                       
                     </tr>
                 </thead>
                 <tbody>
 
                     {
 
-Data.map((person)=>{
+this.state.productDetails.map((product)=>{
 
-                        return(<tr key={person.id}>
-                            <td>{person.id}</td>
-                            <td>{person.first_name}</td>
-                            <td>{person.last_name}</td>
-                            <td>{person.email}</td>
-                            <td>{person.gender}</td>
+                        return(<tr >
+                    
+                            <td>{product.name}</td>
+                            <td>{product.price}</td>
+                            <td>{product.description}</td>
+                          
                         </tr>)
                      })
                     }
