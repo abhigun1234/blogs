@@ -14,6 +14,7 @@ import MyDetails from './components/MyDetails';
 import Myheader from './Myheader';
 import ContactUs from './components/ContactUs';
 import NoPageFound from './components/NoPageFound';
+import PersonDetails from './components/PersonDetails';
 
 function App() {
   function clickMe(){
@@ -36,6 +37,7 @@ function App() {
      <BrowserRouter>
        <Routes>
         <Route  path='about' element={<AboutUs/>}></Route>
+        <Route path='/' element={<MyDetails></MyDetails>}></Route>
         <Route  path='about/:id' element={<AboutUs/>}></Route>
         <Route  path='contact' element={<ContactUs/>}></Route>
         <Route  path='*' element={<NoPageFound/>}></Route>

@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-
+import Data from './data.json'
 export default class MyDetails extends Component {
-    
+    myDetailsArr=Data
     constructor(){
         console.log("constructor execurted")
         super()
         this.state={name:"raju",address:"mumbai"}
+        console.log("Data",Data)
    
     }
     greet(str){
@@ -19,11 +20,50 @@ export default class MyDetails extends Component {
   render() {
     return (
       <div>
-       <h1>{this.state.name}</h1>
-       <h1>{this.state.address}</h1>
-       <button onClick={()=>this.greet("raju")}>ok</button>
-       <button onClick={()=>this.setName("shyam")}>changeName</button>
-        MyDetails</div>
+     {/* hello
+      {
+         Data.map(data=>
+            <ul>
+              <li>{data.fist_name}</li>
+            </ul>
+         )
+   
+      } */}
+      {/*
+        table format 
+      */}
+       <table className="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>first name</th>
+                        <th>last name</th>
+                        <th>email</th>
+                        <th>gender</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {
+
+Data.map((person)=>{
+
+                        return(<tr key={person.id}>
+                            <td>{person.id}</td>
+                            <td>{person.first_name}</td>
+                            <td>{person.last_name}</td>
+                            <td>{person.email}</td>
+                            <td>{person.gender}</td>
+                        </tr>)
+                     })
+                    }
+                 
+
+                </tbody>
+
+            </table>
+
+     </div>
       
     )
   }
